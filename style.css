@@ -1,0 +1,581 @@
+/* ==========================================
+   GLOBAL RESET & BASE STYLES
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Offset for fixed navbar on smooth scroll */
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
+  background-color: #0d0d0d;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================
+   NAVIGATION BAR
+   ========================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(13, 13, 13, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 0;
+}
+
+.navbar nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 40px;
+}
+
+/* Page titles in header (Gold Accent) */
+.navbar nav ul li a {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #c59b27;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+  color: #ffffff;
+}
+
+/* Center Logo ("JON DEAN") - Crisp White */
+.navbar nav ul li.logo a {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: #ffffff;
+}
+
+/* ==========================================
+   BUTTON STYLES
+   ========================================== */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.btn-outline:hover {
+  background: #ffffff;
+  color: #0d0d0d;
+}
+
+/* ==========================================
+   HOMEPAGE STYLES
+   ========================================== */
+body.home-page {
+  background-color: #0d0d0d;
+  color: #ffffff;
+}
+
+/* Homepage Hero Section - Centered Layout */
+.home-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Hero Background Image */
+.home-hero .hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 1;
+}
+
+.home-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 2;
+}
+
+.home-hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.home-hero-content h1 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 500;
+  letter-spacing: 8px;
+  line-height: 1.1;
+  margin-bottom: 15px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.home-hero-content h2 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 400;
+  letter-spacing: 4px;
+  color: #cccccc;
+  margin-bottom: 35px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Homepage Hero Buttons - Larger Box & Text Size */
+.hero-buttons .btn {
+  padding: 16px 36px;
+  font-size: 1.05rem;
+  letter-spacing: 3px;
+}
+
+/* Bio Section Layout */
+.bio-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 100px 20px 120px;
+}
+
+.bio-content h2 {
+  font-size: 2rem;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.bio-content h3 {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  color: #888888;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.bio-content p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #dddddd;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+.bio-quote {
+  margin-top: 40px;
+  padding-left: 20px;
+  border-left: 2px solid #ffffff;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.bio-quote span {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #888888;
+}
+
+/* ==========================================
+   PORTFOLIO & WORK STYLES
+   ========================================== */
+.work-hero {
+  padding-top: 140px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+/* SHOW DON'T TELL - Exact match to CUT TO DIALOGUE */
+.work-hero h1 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: 6px;
+  color: #ffffff;
+  margin-bottom: 25px;
+}
+
+.work-hero p {
+  color: #888888;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
+
+.work-hero p a {
+  color: #c59b27; /* Gold accent color */
+  text-decoration: underline;
+  transition: opacity 0.3s ease;
+}
+
+.work-hero p a:hover {
+  opacity: 0.8;
+}
+
+.work-jump-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Work Page Buttons (TELEVISION & FILM) - Slightly Larger */
+.work-jump-nav .btn {
+  padding: 16px 36px;
+  font-size: 1.05rem;
+  letter-spacing: 3px;
+}
+
+.portfolio-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 100px;
+}
+
+.work-category {
+  margin-bottom: 80px;
+}
+
+.work-category h2 {
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #222222;
+  padding-bottom: 10px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.portfolio-item {
+  cursor: pointer;
+  background: #141414;
+  border: 1px solid #222222;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+  border-color: #444444;
+}
+
+.thumb-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+  background: #000;
+}
+
+.thumb-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .thumb-wrapper img {
+  opacity: 1;
+}
+
+.thumb-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .thumb-overlay {
+  opacity: 1;
+}
+
+.play-icon {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.item-info {
+  padding: 20px;
+}
+
+.item-info h3 {
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 5px;
+}
+
+.item-info p {
+  font-size: 0.8rem;
+  color: #777777;
+  letter-spacing: 1px;
+}
+
+/* ==========================================
+   LIGHTBOX MODAL
+   ========================================== */
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.video-modal.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  background: #111111;
+  border: 1px solid #333333;
+  z-index: 2001;
+  padding: 30px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.iframe-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  margin-bottom: 25px;
+  background: #000;
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-info h3 {
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.modal-info h4 {
+  font-size: 0.9rem;
+  color: #888888;
+  margin-bottom: 15px;
+}
+
+.modal-info p {
+  font-size: 0.85rem;
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   CONTACT PAGE STYLES
+   ========================================== */
+
+body.contact-page {
+  background-color: #0d0d0d;
+  color: #ffffff;
+}
+
+/* Hero Section: 80vh creates space for form below */
+.contact-hero {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Background Image: crops out top black bar & centers subject */
+.hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  z-index: 1;
+}
+
+/* Dark contrast overlay for text readability */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 2;
+}
+
+.contact-hero-content {
+  position: relative;
+  z-index: 3;
+  margin-top: 40px;
+}
+
+.contact-hero h1 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 500;
+  letter-spacing: 6px;
+  color: #ffffff;
+  margin-bottom: 25px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.contact-intro {
+  font-family: 'Roboto Mono', monospace;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  color: #e0e0e0;
+  line-height: 1.7;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* Form Container below the Hero */
+.contact-form-container {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 60px 20px 100px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: #181818;
+  border: 1px solid #333333;
+  color: #ffffff;
+  padding: 14px 16px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.95rem;
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #ffffff;
+  background: #202020;
+}
+
+.contact-form button {
+  align-self: flex-start;
+  margin-top: 10px;
+  cursor: pointer;
+}
