@@ -11,20 +11,13 @@
 </head>
 <body class="contact-page">
 
- <!-- NAVIGATION HEADER -->
+  <!-- NAVIGATION HEADER -->
   <header class="navbar">
-    <nav class="nav-container">
-      <div class="logo"><a href="index.html#home">JON DEAN</a></div>
-      
-      <!-- Mobile Menu Toggle Button -->
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span class="hamburger"></span>
-      </button>
-
-      <!-- Nav Links -->
-      <ul class="nav-links">
+    <nav>
+      <ul>
         <li><a href="index.html#home">HOME</a></li>
         <li><a href="index.html#bio">BIO</a></li>
+        <li class="logo"><a href="index.html#home">JON DEAN</a></li>
         <li><a href="work.html">WORK</a></li>
         <li><a href="contact.html">CONTACT</a></li>
       </ul>
@@ -48,7 +41,7 @@
 
   <!-- FORM SECTION BELOW HERO -->
   <main class="contact-form-container">
-    <form class="contact-form" action="https://formspree.io/f/mdaqrelb" method="POST">
+    <form class="contact-form" action="#" method="POST">
       <div class="form-group">
         <label for="email">Email Address (required)</label>
         <input type="email" id="email" name="email" required>
@@ -67,13 +60,6 @@
       <button type="submit" class="btn btn-outline">SUBMIT</button>
     </form>
   </main>
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <p>&copy; Copyright <span id="year"></span> Jon Dean</p>
-  </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
