@@ -9,7 +9,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 15px; /* Offset for fixed navbar on smooth scroll */
+  scroll-padding-top: 0px; /* Offset for fixed navbar on smooth scroll */
 }
 
 body {
