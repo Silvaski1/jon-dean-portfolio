@@ -33,40 +33,131 @@ a {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(13, 13, 13, 0.4);
+  background: rgba(13, 13, 13, 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 20px 0;
+  padding: 15px 25px;
 }
 
-.navbar nav ul {
+.nav-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  list-style: none;
-  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Page titles in header (Gold Accent) */
-.navbar nav ul li a {
-  font-size: 0.9rem;
-  letter-spacing: 2px;
-  font-weight: 500;
-  color: #c59b27;
-  transition: color 0.3s ease, opacity 0.3s ease;
-}
-
-.navbar nav ul li a:hover {
-  color: #ffffff;
-}
-
-/* Center Logo ("JON DEAN") - Crisp White */
-.navbar nav ul li.logo a {
+/* Logo */
+.logo a {
   font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 3px;
   color: #ffffff;
+}
+
+/* Desktop Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 35px;
+}
+
+.nav-links li a {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #c59b27; /* Gold accent color */
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ffffff;
+}
+
+/* Hamburger Button (Hidden on Desktop) */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.hamburger {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #ffffff;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: #ffffff;
+  transition: transform 0.3s ease, top 0.3s ease;
+}
+
+.hamburger::before { top: -7px; }
+.hamburger::after { top: 7px; }
+
+/* Transform Hamburger into "X" when active */
+.nav-toggle.active .hamburger {
+  background: transparent;
+}
+
+.nav-toggle.active .hamburger::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.nav-toggle.active .hamburger::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* ==========================================
+   MOBILE & TABLET RESPONSIVE MENU
+   ========================================== */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block; /* Show hamburger icon on mobile */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #0d0d0d;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+  }
+
+  .nav-links.active {
+    max-height: 300px; /* Expands open on toggle */
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links li a {
+    display: block;
+    padding: 18px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
 }
 
 /* ==========================================
@@ -229,7 +320,6 @@ body.home-page {
   text-align: center;
 }
 
-/* SHOW DON'T TELL - Exact match to CUT TO DIALOGUE */
 .work-hero h1 {
   font-family: 'Roboto Mono', monospace;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
@@ -247,7 +337,7 @@ body.home-page {
 }
 
 .work-hero p a {
-  color: #c59b27; /* Gold accent color */
+  color: #c59b27;
   text-decoration: underline;
   transition: opacity 0.3s ease;
 }
@@ -262,7 +352,6 @@ body.home-page {
   gap: 20px;
 }
 
-/* Work Page Buttons (TELEVISION & FILM) - Slightly Larger */
 .work-jump-nav .btn {
   padding: 16px 36px;
   font-size: 1.05rem;
@@ -479,7 +568,6 @@ body.contact-page {
   padding: 0 20px;
 }
 
-/* Background Image: crops out top black bar & centers subject */
 .hero-bg-img {
   position: absolute;
   top: 0;
@@ -491,7 +579,6 @@ body.contact-page {
   z-index: 1;
 }
 
-/* Dark contrast overlay for text readability */
 .hero-overlay {
   position: absolute;
   top: 0;
