@@ -9,7 +9,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Offset for fixed navbar on smooth scroll */
+  scroll-padding-top: 15px; /* Offset for fixed navbar on smooth scroll */
 }
 
 body {
@@ -33,131 +33,40 @@ a {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(13, 13, 13, 0.85);
+  background: rgba(13, 13, 13, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 15px 25px;
+  padding: 20px 0;
 }
 
-.nav-container {
+.navbar nav ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  list-style: none;
+  gap: 40px;
 }
 
-/* Logo */
-.logo a {
+/* Page titles in header (Gold Accent) */
+.navbar nav ul li a {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #c59b27;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+  color: #ffffff;
+}
+
+/* Center Logo ("JON DEAN") - Crisp White */
+.navbar nav ul li.logo a {
   font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 3px;
   color: #ffffff;
-}
-
-/* Desktop Links */
-.nav-links {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  gap: 35px;
-}
-
-.nav-links li a {
-  font-size: 0.9rem;
-  letter-spacing: 2px;
-  font-weight: 500;
-  color: #c59b27; /* Gold accent color */
-  transition: color 0.3s ease;
-}
-
-.nav-links li a:hover {
-  color: #ffffff;
-}
-
-/* Hamburger Button (Hidden on Desktop) */
-.nav-toggle {
-  display: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-}
-
-.hamburger {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: #ffffff;
-  position: relative;
-  transition: background 0.3s ease;
-}
-
-.hamburger::before,
-.hamburger::after {
-  content: '';
-  position: absolute;
-  width: 24px;
-  height: 2px;
-  background: #ffffff;
-  transition: transform 0.3s ease, top 0.3s ease;
-}
-
-.hamburger::before { top: -7px; }
-.hamburger::after { top: 7px; }
-
-/* Transform Hamburger into "X" when active */
-.nav-toggle.active .hamburger {
-  background: transparent;
-}
-
-.nav-toggle.active .hamburger::before {
-  top: 0;
-  transform: rotate(45deg);
-}
-
-.nav-toggle.active .hamburger::after {
-  top: 0;
-  transform: rotate(-45deg);
-}
-
-/* ==========================================
-   MOBILE & TABLET RESPONSIVE MENU
-   ========================================== */
-@media (max-width: 768px) {
-  .nav-toggle {
-    display: block; /* Show hamburger icon on mobile */
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #0d0d0d;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    flex-direction: column;
-    gap: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-in-out;
-  }
-
-  .nav-links.active {
-    max-height: 300px; /* Expands open on toggle */
-  }
-
-  .nav-links li {
-    width: 100%;
-    text-align: center;
-  }
-
-  .nav-links li a {
-    display: block;
-    padding: 18px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-  }
 }
 
 /* ==========================================
@@ -237,7 +146,7 @@ body.home-page {
 .home-hero-content h1 {
   font-family: 'Roboto Mono', monospace;
   font-size: clamp(2.8rem, 6vw, 5.5rem);
-  font-weight: 350;
+  font-weight: 500;
   letter-spacing: 8px;
   line-height: 1.1;
   margin-bottom: 15px;
@@ -267,48 +176,91 @@ body.home-page {
   letter-spacing: 3px;
 }
 
-/* Bio Section Layout */
-.bio-container {
-  max-width: 900px;
+/* ==========================================
+   SCREENPLAY BIO SECTION
+   ========================================== */
+.script-container {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 100px 20px 120px;
+  padding: 120px 40px 30px;
+  font-family: 'Roboto Mono', monospace;
+  color: #ffffff; /* Crisp white for main text */
+  text-align: left;
 }
 
-.bio-content h2 {
-  font-size: 2rem;
-  letter-spacing: 3px;
-  margin-bottom: 10px;
-}
-
-.bio-content h3 {
-  font-size: 1.2rem;
+/* Headings: FADE IN: & INT. JON'S WEBSITE (#99908F) */
+.script-container .fade-in {
+  font-size: 2.4rem;
+  font-weight: 700;
   letter-spacing: 2px;
-  color: #888888;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  color: #99908F;
+}
+
+.script-container .scene-heading {
+  font-size: 1.62rem;
+  font-weight: 700;
+  letter-spacing: 2px;
   margin-bottom: 30px;
+  line-height: 1.2;
+  color: #99908F;
+}
+
+/* Script Body Paragraphs */
+.script-body p {
+  font-size: 1.14rem;
+  line-height: 1.85;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin-bottom: 26px;
+  text-transform: uppercase;
+}
+
+.script-body p em {
   font-style: italic;
 }
 
-.bio-content p {
-  font-size: 0.95rem;
-  line-height: 1.8;
-  color: #dddddd;
-  margin-bottom: 24px;
-  letter-spacing: 0.5px;
+/* Inline Link ("PLEASE GET IN TOUCH") */
+.script-body .inline-link {
+  color: #c59b27;
+  text-decoration: underline;
+  transition: opacity 0.2s ease, color 0.2s ease;
 }
 
-.bio-quote {
-  margin-top: 40px;
-  padding-left: 20px;
-  border-left: 2px solid #ffffff;
-  font-size: 1rem;
+.script-body .inline-link:hover {
+  color: #ffffff;
+  opacity: 0.85;
+}
+
+/* Quote Section ("WANNA TAKE A RIDE?") (#99908F) */
+.script-quote {
+  margin-top: 45px;
+}
+
+.script-quote .quote-line {
+  font-size: 2rem;
+  line-height: 1.25;
+  margin-bottom: 12px;
   letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #99908F;
 }
 
-.bio-quote span {
-  display: block;
-  margin-top: 8px;
-  font-size: 0.85rem;
-  color: #888888;
+/* John Hurt Attribution (#99908F) */
+.script-quote .quote-author {
+  font-size: 1.5rem;
+  color: #99908F;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* John Hurt Attribution (Scaled down 25% to 1.5rem) */
+.script-quote .quote-author {
+  font-size: 1.5rem; /* Reduced from 2rem */
+  color: #cccccc; /* Light grey */
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 /* ==========================================
@@ -320,6 +272,7 @@ body.home-page {
   text-align: center;
 }
 
+/* SHOW DON'T TELL - Exact match to CUT TO DIALOGUE */
 .work-hero h1 {
   font-family: 'Roboto Mono', monospace;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
@@ -337,7 +290,7 @@ body.home-page {
 }
 
 .work-hero p a {
-  color: #c59b27;
+  color: #c59b27; /* Gold accent color */
   text-decoration: underline;
   transition: opacity 0.3s ease;
 }
@@ -352,6 +305,7 @@ body.home-page {
   gap: 20px;
 }
 
+/* Work Page Buttons (TELEVISION & FILM) - Slightly Larger */
 .work-jump-nav .btn {
   padding: 16px 36px;
   font-size: 1.05rem;
@@ -549,7 +503,6 @@ body.home-page {
 /* ==========================================
    CONTACT PAGE STYLES
    ========================================== */
-
 body.contact-page {
   background-color: #0d0d0d;
   color: #ffffff;
@@ -568,6 +521,7 @@ body.contact-page {
   padding: 0 20px;
 }
 
+/* Background Image: crops out top black bar & centers subject */
 .hero-bg-img {
   position: absolute;
   top: 0;
@@ -579,6 +533,7 @@ body.contact-page {
   z-index: 1;
 }
 
+/* Dark contrast overlay for text readability */
 .hero-overlay {
   position: absolute;
   top: 0;
@@ -668,12 +623,15 @@ body.contact-page {
 }
 
 /* ==========================================
-   SITE FOOTER
+   SITE FOOTER (Copyright Notice)
    ========================================== */
 .site-footer {
-  text-align: center;
-  padding: 30px 0 20px;
-  font-size: 0.75rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 40px 60px;
+  text-align: center; /* Centred as requested */
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85rem;
+  color: #ffffff;
   letter-spacing: 1px;
-  opacity: 0.6;
 }

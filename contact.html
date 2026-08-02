@@ -13,8 +13,8 @@
 
   <!-- NAVIGATION HEADER -->
   <header class="navbar">
-    <nav>
-      <ul>
+    <nav class="nav-container">
+      <ul class="nav-links">
         <li><a href="index.html#home">HOME</a></li>
         <li><a href="index.html#bio">BIO</a></li>
         <li class="logo"><a href="index.html#home">JON DEAN</a></li>
@@ -41,7 +41,7 @@
 
   <!-- FORM SECTION BELOW HERO -->
   <main class="contact-form-container">
-    <form class="contact-form" action="#" method="POST">
+    <form class="contact-form" action="https://formspree.io/f/mdaqrelb" method="POST">
       <div class="form-group">
         <label for="email">Email Address (required)</label>
         <input type="email" id="email" name="email" required>
@@ -61,5 +61,16 @@
     </form>
   </main>
 
+<!-- SITE FOOTER -->
+    <footer class="site-footer">
+      <p>© Copyright <span id="year">2026</span> Jon Dean</p>
+    </footer>
+
+    <!-- DYNAMIC YEAR SCRIPT -->
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
 </body>
 </html>
