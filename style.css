@@ -579,3 +579,14 @@ body.contact-page {
   margin-top: 10px;
   cursor: pointer;
 }
+
+/* ==========================================
+   SITE FOOTER
+   ========================================== */
+.site-footer {
+  text-align: center;
+  padding: 30px 0 20px;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  opacity: 0.6;
+}
