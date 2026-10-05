@@ -410,6 +410,22 @@ body.home-page {
   letter-spacing: 1px;
 }
 
+/* Graphic-only items (no video yet, e.g. Sherwood) */
+.portfolio-item.no-video {
+  cursor: default;
+}
+
+.portfolio-item.no-video:hover {
+  transform: none;
+  border-color: #222222;
+}
+
+/* Show the whole logo instead of cropping it to fill the box */
+.portfolio-item.no-video .thumb-wrapper img {
+  object-fit: contain;
+  opacity: 1;
+}
+
 /* ==========================================
    LIGHTBOX MODAL
    ========================================== */
