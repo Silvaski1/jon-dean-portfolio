@@ -281,13 +281,13 @@ body.home-page {
   text-transform: uppercase;
 }
 
-.script-footnote .inline-link {
+.script-footnote a.inline-link,
+.script-footnote a.inline-link:visited {
   color: #c59b27;
   text-decoration: underline;
-  transition: opacity 0.2s ease, color 0.2s ease;
 }
 
-.script-footnote .inline-link:hover {
+.script-footnote a.inline-link:hover {
   color: #ffffff;
   opacity: 0.85;
 }
