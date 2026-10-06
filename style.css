@@ -263,6 +263,44 @@ body.home-page {
   text-transform: uppercase;
 }
 
+/* John Hurt Attribution (#99908F) */
+.script-quote .quote-author {
+  font-size: 1.5rem;
+  color: #99908F;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Small footnote below the quote */
+.script-footnote {
+  margin-top: 60px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.script-footnote .inline-link {
+  color: #c59b27;
+  text-decoration: underline;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.script-footnote .inline-link:hover {
+  color: #ffffff;
+  opacity: 0.85;
+}
+
+/* John Hurt Attribution (Scaled down 25% to 1.5rem) */
+.script-quote .quote-author {
+  font-size: 1.5rem; /* Reduced from 2rem */
+  color: #cccccc; /* Light grey */
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+
 /* ==========================================
    PORTFOLIO & WORK STYLES
    ========================================== */
