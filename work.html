@@ -321,6 +321,7 @@
     portfolioItems.forEach(item => {
       item.addEventListener('click', () => {
         const videoSrc = item.getAttribute('data-video-src');
+        if (!videoSrc) return;   // no video link = do nothing
         const title = item.getAttribute('data-title') || '';
         const subtitle = item.getAttribute('data-subtitle') || '';
         const description = item.getAttribute('data-description') || '';
