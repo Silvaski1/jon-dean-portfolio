@@ -136,6 +136,69 @@ body.home-page {
   z-index: 2;
 }
 
+/* Animated hero banner */
+.hero-banner {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  container-type: size;
+  background: #000;
+}
+
+.banner-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* 16:9 stage that always covers the hero box */
+.banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;                               /* fallback */
+  width: max(100cqw, calc(100cqh * 16 / 9)); /* cover behaviour */
+  aspect-ratio: 16 / 9;
+  transform: translate(-50%, -50%);
+}
+
+.banner-tile {
+  position: absolute;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.9s ease-out;
+  z-index: 1;
+}
+.banner-tile.show { opacity: 1; }
+
+.banner-final {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 2;
+}
+.banner.anim .banner-final {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.banner.anim.done .banner-final { opacity: 1; }
+
+/* subtle vignette */
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 50%, rgba(0,0,0,0.35) 100%);
+}
+
 .home-hero-content {
   position: relative;
   z-index: 3;
