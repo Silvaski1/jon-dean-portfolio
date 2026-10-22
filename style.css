@@ -175,6 +175,7 @@ body.home-page {
 }
 .banner-tile.show { opacity: 1; }
 
+/* Final full image: hidden until the tiles finish, then fades in */
 .banner-final {
   position: absolute;
   inset: 0;
@@ -182,12 +183,15 @@ body.home-page {
   height: 100%;
   display: block;
   z-index: 2;
-}
-.banner.anim .banner-final {
   opacity: 0;
   transition: opacity 1s ease;
+  animation: bannerReveal 1s ease 8s forwards; /* failsafe if the JS never runs */
 }
-.banner.anim.done .banner-final { opacity: 1; }
+.banner.done .banner-final {
+  opacity: 1;
+  animation: none;
+}
+@keyframes bannerReveal { to { opacity: 1; } }
 
 /* subtle vignette */
 .hero-banner::after {
